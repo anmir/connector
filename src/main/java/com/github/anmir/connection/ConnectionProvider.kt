@@ -15,11 +15,11 @@ object ConnectionProvider : KLogging() {
     }
 
 
-    fun getDsFromJndi(): DataSource {
+    fun getH2Jndi(): DataSource {
         return JndiTemplate().lookup("java:/comp/env/jdbc/h2") as DataSource
     }
 
-    fun getDsFromJndi2(): DataSource {
+    fun getPgJndi(): DataSource {
         return JndiTemplate().lookup("java:/comp/env/jdbc/pg") as DataSource
     }
 

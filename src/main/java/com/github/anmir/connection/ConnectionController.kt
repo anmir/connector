@@ -30,7 +30,7 @@ class ConnectionController {
     @GetMapping("/ds/jndi")
     @ResponseStatus(HttpStatus.OK)
     fun dsJndi() {
-        val ds = ConnectionProvider.getDsFromJndi()
+        val ds = ConnectionProvider.getH2Jndi()
         val connection = ds.connection
         logger.info { "connection: $connection" }
         connection.close()
@@ -40,7 +40,7 @@ class ConnectionController {
     @GetMapping("/ds/jndi/pg")
     @ResponseStatus(HttpStatus.OK)
     fun dsJndiPg() {
-        val ds = ConnectionProvider.getDsFromJndi2()
+        val ds = ConnectionProvider.getPgJndi()
         val connection = ds.connection
         logger.info { "connection: $connection" }
         connection.close()
